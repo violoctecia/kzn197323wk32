@@ -21,7 +21,7 @@
 section {
     background: var(--dark-blue);
     .container {
-        background-image: url("/images/Frame 4138.svg");
+        background-image: url("/images/Frame4138.svg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: right bottom;
@@ -64,8 +64,6 @@ section {
 @media (max-width: 900px) {
     section {
         .container {
-            background-image: url("/images/Frame 4138.svg");
-            background-repeat: no-repeat;
             background-size: 350px;
             background-position: center bottom 100px;
         }

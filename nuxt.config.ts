@@ -5,8 +5,5 @@ export default defineNuxtConfig({
   css: [
     '@/assets/style/main.css'
   ],
-  app: {
-    baseURL: '/kzn197323wk32/', // Путь к вашему репозиторию, если не используете кастомный домен
-  },
   ssr: true,
 })
