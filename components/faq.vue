@@ -58,6 +58,7 @@ const faq = [
 <style scoped>
 section {
     padding: 65px 0;
+    background: var(--background);
 }
 
 h2 {

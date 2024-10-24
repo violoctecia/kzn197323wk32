@@ -95,10 +95,15 @@ body {
     cursor: pointer;
     border: 1px solid var(--orang);
 }
-button:hover {
+button:hover, button:focus {
     background: var(--white);
     color: var(--orang);
-
+}
+button:disabled {
+    border: 1px solid #9B9BAF;
+    background: #f6f7f8;
+    color: #9B9BAF;
+    cursor: not-allowed;
 }
 @media (max-width: 1130px) {
     .container {
