@@ -50,17 +50,21 @@ const onSubmit = handleSubmit(values => {
                             <ErrorMessage name="name" />
                         </div>
                         <div class="input">
-                            <Field name="phone">
-                                <template #default="{ field }">
-                                    <MaskInput
-                                        v-model="field.value"
-                                        placeholder="Номер телефона"
-                                        class="input auth__input"
-                                        mask="+7 (###) ###-##-##"
-                                        v-bind="field"
-                                    />
-                                </template>
-                            </Field>
+                            <client-only>
+                                <Field name="phone">
+
+                                    <template #default="{ field }">
+                                        <MaskInput
+                                            v-model="field.value"
+                                            placeholder="Номер телефона"
+                                            class="input auth__input"
+                                            mask="+7 (###) ###-##-##"
+                                            v-bind="field"
+                                        />
+                                    </template>
+
+                                </Field>
+                            </client-only>
                             <ErrorMessage name="phone" />
                         </div>
                     </div>
