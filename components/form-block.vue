@@ -1,24 +1,28 @@
 <script setup>
 import { useForm, ErrorMessage, Field } from 'vee-validate';
 import * as Yup from 'yup';
+import { MaskInput } from 'vue-3-mask';
 
+// Определение схемы валидации
 const validationSchema = Yup.object({
     name: Yup.string()
         .required('Имя обязательно для заполнения')
         .min(2, 'Имя должно содержать не менее 2 символов'),
     phone: Yup.string()
         .required('Номер телефона обязателен для заполнения')
-        .matches(/^\+?[1-9]\d{1,14}$/, 'Неправильный формат номера телефона')
+        .matches(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, 'Неправильный формат номера телефона') // Проверка на формат номера
 });
 
-const { handleSubmit, isSubmitting, isValid } = useForm({
+// Инициализация формы и полей
+const { handleSubmit, isSubmitting } = useForm({
     validationSchema,
     initialValues: {
         name: '',
-        phone: '',
-    },
+        phone: ''
+    }
 });
 
+// Обработка отправки формы
 const onSubmit = handleSubmit(values => {
     console.log('Данные формы:', values);
 });
@@ -33,15 +37,34 @@ const onSubmit = handleSubmit(values => {
                     <span class="title">Готовы сделать заказ или есть вопросы?</span>
                     <div class="inputs">
                         <div class="input">
-                            <Field name="name" placeholder="Ваше имя" />
+                            <Field name="name">
+                                <template #default="{ field }">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваше имя"
+                                        v-model="field.value"
+                                        v-bind="field"
+                                    />
+                                </template>
+                            </Field>
                             <ErrorMessage name="name" />
                         </div>
                         <div class="input">
-                            <Field name="phone" placeholder="Номер телефона" pattern="[0-9]*" />
+                            <Field name="phone">
+                                <template #default="{ field }">
+                                    <MaskInput
+                                        v-model="field.value"
+                                        placeholder="Номер телефона"
+                                        class="input auth__input"
+                                        mask="+7 (###) ###-##-##"
+                                        v-bind="field"
+                                    />
+                                </template>
+                            </Field>
                             <ErrorMessage name="phone" />
                         </div>
                     </div>
-                    <button type="submit" class="button">
+                    <button type="submit" class="button" :disabled="isSubmitting">
                         Оставить заявку
                     </button>
                 </form>
@@ -71,12 +94,14 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+
     span {
         font-weight: 400;
         font-size: 10px;
         text-align: center;
         color: #9B9BAF;
     }
+
     form {
         display: flex;
         flex-direction: column;
@@ -137,18 +162,22 @@ input::placeholder {
     font-size: 16px;
     color: #9B9BAF;
 }
+
 @media (max-width: 900px) {
     .container {
         padding-top: 45px;
         max-width: none;
         flex-direction: column-reverse;
     }
+
     img {
         max-width: 460px;
         width: 100%;
     }
+
     .form {
         max-width: 600px;
+
         form {
 
             .title {
