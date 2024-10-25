@@ -5,31 +5,37 @@ const isNavOpen = ref(false);
 
 const toggleNav = () => {
     isNavOpen.value = !isNavOpen.value;
-    const appElement = document.getElementById("__nuxt");
+
+    // Управление классом для body
     if (isNavOpen.value) {
-        appElement.classList.add("menu-active");
+        document.body.classList.add("menu-active");
     } else {
-        appElement.classList.remove("menu-active");
+        document.body.classList.remove("menu-active");
     }
+
+    // Открытие/закрытие бокового меню
     const sidenav = document.getElementById("mySidenav");
-    if (isNavOpen.value) {
-        sidenav.style.width = "100%";
-    } else {
-        sidenav.style.width = "0";
-    }
+    sidenav.style.width = isNavOpen.value ? "100%" : "0";
 };
+
+// Обработчик для закрытия меню и скролла к элементу
 const handleBoth = (el) => {
-    const appElement = document.getElementById("__nuxt");
-    appElement.classList.remove("menu-active");
+    // Убираем класс menu-active у body
+    document.body.classList.remove("menu-active");
     isNavOpen.value = false;
+
+    // Закрываем боковое меню
     const sidenav = document.getElementById("mySidenav");
     sidenav.style.width = "0";
+
+    // Скроллим к нужному элементу
     const formElement = document.getElementById(el);
     if (formElement) {
         formElement.scrollIntoView({ behavior: 'smooth' });
     }
 };
 
+// Прямой переход к элементу без меню
 const goToForm = (el) => {
     const formElement = document.getElementById(el);
     if (formElement) {

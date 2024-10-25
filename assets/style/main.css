@@ -106,7 +106,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
-#__nuxt.menu-active {
+body.menu-active {
     height: 100vh;
     overflow: hidden;
 }
