@@ -28,7 +28,7 @@ const goToForm = (el) => {
     <header>
         <div class="container">
             <a class="logo" @click="isNavOpen = false">
-                <img src="/images/icons/logo.svg" alt=" " loading="lazy">
+                <img src="/images/icons/logo.jpg" alt=" " loading="lazy">
             </a>
             <nav class="desktop-menu">
                 <a @click="goToForm('why')">О нас</a>
@@ -240,7 +240,7 @@ header {
     .mobile-nav {
         box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
         border-radius: 0 0 13px 13px;
-        height: calc(100svh - 60px);
+        height: calc(100lvh - 60px);
         width: 100%;
         position: absolute;
         z-index: 1;
