@@ -85,7 +85,7 @@ const goToForm = (el) => {
                    <span class="line"></span>
                    <span class="line"></span>
                </div>
-               <div id="mySidenav" class="sidenav">
+               <div id="mySidenav" class="sidenav" >
                    <nav>
                        <a @click="handleBoth('why')">О нас</a>
                        <a @click="handleBoth('techs')">Скупка</a>
@@ -98,6 +98,7 @@ const goToForm = (el) => {
            </div>
         </div>
     </header>
+
 </template>
 
 <style scoped>
@@ -224,13 +225,12 @@ header {
         width: 0;
         position: fixed;
         z-index: 1;
-        top: 0;
+        top: 60px;
         right: 0;
         background-color: var(--white);
         overflow-x: hidden;
         overflow-y: scroll;
         padding: 20px 0 80px 0;
-        margin-top: 60px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

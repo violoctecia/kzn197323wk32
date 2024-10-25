@@ -107,7 +107,6 @@ button:disabled {
 }
 
 body.menu-active {
-    height: 100vh;
     overflow: hidden;
 }
 @media (max-width: 1130px) {
