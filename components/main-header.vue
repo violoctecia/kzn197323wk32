@@ -2,22 +2,22 @@
 import { ref } from 'vue';
 
 const isNavOpen = ref(false);
+const root = document.getElementById('__nuxt');
 
 const toggleNav = () => {
     isNavOpen.value = !isNavOpen.value;
     if (isNavOpen.value) {
-        document.body.style.overflowY = 'hidden';
-        document.body.style.height = '100vh';
-    } else {
-        document.body.style.overflowY = '';
-        document.body.style.height = '';
+        root.style.overflow = 'hidden';
+        root.style.height = '100vh';
+    } else {   root.style.height = '';
+        root.style.overflow = '';
     }
 };
 
 const handleBoth = (el) => {
     isNavOpen.value = false;
-    document.body.style.overflowY = '';
-    document.body.style.height = '';
+    root.style.overflow = '';
+    root.style.height = '';
     const formElement = document.getElementById(el);
     if (formElement) {
         formElement.scrollIntoView({ behavior: 'smooth' });
@@ -80,7 +80,7 @@ const goToForm = (el) => {
         </div>
     </header>
     <div class="mobile" v-if="isNavOpen">
-        <div id="mySidenav" class="mobile-nav" >
+        <div id="mySidenav" class="mobile-nav">
             <nav>
                 <a @click="handleBoth('why')">О нас</a>
                 <a @click="handleBoth('techs')">Скупка</a>
@@ -88,6 +88,7 @@ const goToForm = (el) => {
                 <a @click="handleBoth('faq')">Вопросы</a>
                 <a @click="handleBoth('contacts')">Контакты</a>
             </nav>
+            <button class="button" @click="handleBoth('form')">Оставить заявку</button>
             <div class="contacts-mobile">
                 <a class="phone" href="tel:+79030623832">
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +115,7 @@ const goToForm = (el) => {
                     </a>
                 </div>
             </div>
-            <button class="button" @click="handleBoth('form')">Оставить заявку</button>
+
         </div>
     </div>
 </template>
@@ -218,19 +219,19 @@ header {
         flex-direction: column;
         align-self: center;
         display: flex;
-    }
 
-    .hamburger .line {
-        width: 18px;
-        height: 2px;
-        background-color: var(--dark-blue);
-        display: block;
-        transition: all 0.3s ease-in-out;
-        border-radius: 5px;
-    }
+        .line {
+            width: 18px;
+            height: 2px;
+            background-color: var(--dark-blue);
+            display: block;
+            transition: all 0.3s ease-in-out;
+            border-radius: 5px;
+        }
 
-    .hamburger .line:nth-child(2) {
-        margin: 5px auto;
+        .line:nth-child(2) {
+            margin: 5px auto;
+        }
     }
 
     .hamburger.menu--active .line:nth-child(1) {
@@ -246,9 +247,9 @@ header {
     }
 
     .mobile-nav {
-        height: calc(100% - 60px);
+        height: calc(100vh - 60px);
         width: 100%;
-        position: fixed;
+        position: sticky;
         z-index: 1;
         top: 60px;
         right: 0;
@@ -258,18 +259,18 @@ header {
         padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
 
         .contacts-mobile {
-            z-index: 2;
+            height: 100%;
             display: flex;
             flex-direction: column;
             gap: 35px;
             width: calc(100% - 40px);
             justify-content: center;
             align-items: center;
-            margin-bottom: 25px;
+
             .social {
                 display: flex;
                 align-items: center;
@@ -294,8 +295,10 @@ header {
                 }
             }
         }
+
         nav {
             margin-bottom: 25px;
+
             a {
                 padding: 13px;
                 font-size: 16px;
@@ -311,14 +314,10 @@ header {
         }
 
         button {
-            position: sticky;
-            bottom: 0;
-            z-index: 4;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             width: 100%;
         }
     }
-
 
 
     header {
