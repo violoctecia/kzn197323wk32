@@ -105,7 +105,6 @@ button:disabled {
     color: #9B9BAF;
     cursor: not-allowed;
 }
-
 @media (max-width: 1130px) {
     .container {
         padding: 0 20px;

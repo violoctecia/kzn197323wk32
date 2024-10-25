@@ -4,6 +4,7 @@ import { ref } from 'vue';
 const isNavOpen = ref(false);
 
 const toggleNav = () => {
+    document.body.style.overflowY = 'hidden';
     isNavOpen.value = !isNavOpen.value;
 };
 
@@ -238,11 +239,9 @@ header {
     }
 
     .mobile-nav {
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25);
-        border-radius: 0 0 13px 13px;
-        height: calc(100lvh - 60px);
+        height: calc(100% - 60px);
         width: 100%;
-        position: absolute;
+        position: fixed;
         z-index: 1;
         top: 60px;
         right: 0;
