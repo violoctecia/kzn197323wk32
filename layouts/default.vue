@@ -1,16 +1,13 @@
 <script setup>
 
+import MainHeader from '~/components/main-header.vue';
 </script>
 
 <template>
-    <header>
-
-    </header>
+    <main-header />
     <NuxtPage />
 </template>
 
 <style scoped>
-header {
-    height: 60px;
-}
+
 </style>

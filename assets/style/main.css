@@ -105,6 +105,11 @@ button:disabled {
     color: #9B9BAF;
     cursor: not-allowed;
 }
+
+#__nuxt.menu-active {
+    height: 100vh;
+    overflow: hidden;
+}
 @media (max-width: 1130px) {
     .container {
         padding: 0 20px;

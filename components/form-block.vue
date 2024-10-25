@@ -60,6 +60,7 @@ const onSubmit = handleSubmit(values => {
                                             class="input auth__input"
                                             mask="+7 (###) ###-##-##"
                                             v-bind="field"
+                                            pattern="[0-9]{10}"
                                         />
                                     </template>
 
@@ -85,19 +86,22 @@ section {
 }
 
 .container {
-    padding-top: 30px;
+    padding-top: 65px;
     max-width: 920px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+img {
+    align-self: flex-end;
+}
 .form {
     max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-bottom: 45px;
 
     span {
         font-weight: 400;
@@ -177,11 +181,15 @@ input::placeholder {
     img {
         max-width: 460px;
         width: 100%;
+        align-self: center;
     }
 
     .form {
         max-width: 600px;
-
+        margin-bottom: 5px;
+        span {
+            max-width: 300px;
+        }
         form {
 
             .title {

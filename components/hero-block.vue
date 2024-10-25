@@ -1,5 +1,10 @@
 <script setup>
-
+const goToForm = () => {
+    const formElement = document.getElementById('form');
+    if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 </script>
 
 <template>
@@ -11,7 +16,7 @@
                         в Казани, оценка Online</h1>
                     <p>Узнать цену устройства сейчас</p>
                 </div>
-                <button class="button">Оставить заявку</button>
+                <button class="button" @click="goToForm">Оставить заявку</button>
             </div>
         </div>
     </section>

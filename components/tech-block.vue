@@ -33,6 +33,13 @@ const techs = [
     'Sony PlayStation', 'Xbox', 'Nintendo Switch',
     'Видеокарты RTX', 'Видеокарты AMD', 'Steam Deck'
 ];
+
+const goToForm = () => {
+    const formElement = document.getElementById('form');
+    if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 </script>
 
 <template>
@@ -50,7 +57,7 @@ const techs = [
             <ul>
                 <li v-for="i in techs" :key="i">{{ i }}</li>
             </ul>
-            <button class="button">Оставить заявку</button>
+            <button class="button" @click="goToForm">Оставить заявку</button>
         </div>
     </section>
 </template>
