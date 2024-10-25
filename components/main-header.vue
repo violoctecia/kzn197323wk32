@@ -4,13 +4,20 @@ import { ref } from 'vue';
 const isNavOpen = ref(false);
 
 const toggleNav = () => {
-    document.body.style.overflowY = 'hidden';
     isNavOpen.value = !isNavOpen.value;
+    if (isNavOpen.value) {
+        document.body.style.overflowY = 'hidden';
+        document.body.style.height = '100vh';
+    } else {
+        document.body.style.overflowY = '';
+        document.body.style.height = '';
+    }
 };
 
 const handleBoth = (el) => {
     isNavOpen.value = false;
-
+    document.body.style.overflowY = '';
+    document.body.style.height = '';
     const formElement = document.getElementById(el);
     if (formElement) {
         formElement.scrollIntoView({ behavior: 'smooth' });
