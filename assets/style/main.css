@@ -106,9 +106,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-body.menu-active {
-    overflow: hidden;
-}
 @media (max-width: 1130px) {
     .container {
         padding: 0 20px;
