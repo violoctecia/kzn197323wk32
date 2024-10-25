@@ -2,9 +2,10 @@
 import { ref } from 'vue';
 
 const isNavOpen = ref(false);
-const root = document.getElementById('__nuxt');
+
 
 const toggleNav = () => {
+    const root = document.getElementById('__nuxt');
     isNavOpen.value = !isNavOpen.value;
     if (isNavOpen.value) {
         root.style.overflow = 'hidden';
@@ -15,6 +16,7 @@ const toggleNav = () => {
 };
 
 const handleBoth = (el) => {
+    const root = document.getElementById('__nuxt');
     isNavOpen.value = false;
     root.style.overflow = '';
     root.style.height = '';
