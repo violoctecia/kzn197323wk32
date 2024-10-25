@@ -214,7 +214,7 @@ header {
     }
 
     .sidenav {
-        height: calc(100lvh - 60px);
+        height: calc(100vh - 60px);
         width: 0;
         position: fixed;
         z-index: 1;
@@ -222,7 +222,7 @@ header {
         right: 0;
         background-color: var(--white);
         overflow-x: hidden;
-        transition: 0.3s;
+
         padding: 20px 0 80px 0;
         margin-top: 60px;
         display: flex;
