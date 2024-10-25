@@ -22,14 +22,18 @@ const handleBoth = (el) => {
     root.style.height = '';
     const formElement = document.getElementById(el);
     if (formElement) {
-        formElement.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100); // небольшая задержка
     }
 };
 
 const goToForm = (el) => {
     const formElement = document.getElementById(el);
     if (formElement) {
-        formElement.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100); // небольшая задержка
     }
 };
 </script>
