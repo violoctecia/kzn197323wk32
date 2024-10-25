@@ -1,8 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 const isNavOpen = ref(false);
-
+const router = useRouter();
+const route = useRoute();
 
 const toggleNav = () => {
     const root = document.getElementById('__nuxt');
@@ -10,46 +12,61 @@ const toggleNav = () => {
     if (isNavOpen.value) {
         root.style.overflow = 'hidden';
         root.style.height = '100vh';
-    } else {   root.style.height = '';
+    } else {
+        root.style.height = '';
         root.style.overflow = '';
     }
 };
 
-const handleBoth = (el) => {
+const goToSection = (sectionId) => {
+    if (route.path !== '/') {
+        router.push({ path: '/', hash: `#${sectionId}` });
+    } else {
+        scrollToSection(sectionId);
+    }
+};
+
+const scrollToSection = (sectionId) => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+};
+
+onMounted(() => {
+    if (route.hash) {
+        const sectionId = route.hash.replace('#', '');
+        scrollToSection(sectionId);
+    }
+});
+
+const handleBoth = (sectionId) => {
     const root = document.getElementById('__nuxt');
     isNavOpen.value = false;
     root.style.overflow = '';
     root.style.height = '';
-    const formElement = document.getElementById(el);
-    if (formElement) {
+    if (route.path !== '/') {
+        router.push({ path: '/', hash: `#${sectionId}` });
+    } else {
         setTimeout(() => {
-            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); // небольшая задержка
+            scrollToSection(sectionId);
+        }, 100);
     }
-};
 
-const goToForm = (el) => {
-    const formElement = document.getElementById(el);
-    if (formElement) {
-        setTimeout(() => {
-            formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100); // небольшая задержка
-    }
 };
 </script>
-
 <template>
     <header>
         <div class="container">
-            <a class="logo" @click="isNavOpen = false">
-                <img src="/images/icons/logo.jpg" alt=" " loading="lazy">
-            </a>
+            <nuxt-link class="logo" to="/" @click="isNavOpen = false">
+                <img src="/images/icons/logo.jpg" alt=" ">
+            </nuxt-link>
             <nav class="desktop-menu">
-                <a @click="goToForm('why')">О нас</a>
-                <a @click="goToForm('techs')">Скупка</a>
-                <a @click="goToForm('reviews')">Отзывы</a>
-                <a @click="goToForm('faq')">Вопросы</a>
-                <a @click="goToForm('contacts')">Контакты</a>
+                <a @click="goToSection('why')">О нас</a>
+                <a @click="goToSection('techs')">Скупка</a>
+                <a @click="goToSection('reviews')">Отзывы</a>
+                <a @click="goToSection('faq')">Вопросы</a>
+                <a @click="goToSection('contacts')">Контакты</a>
             </nav>
             <div class="contacts">
                 <a class="phone" href="tel:+79030623832">

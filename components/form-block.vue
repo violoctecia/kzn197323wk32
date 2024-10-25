@@ -31,10 +31,10 @@ const onSubmit = handleSubmit(values => {
 <template>
     <section>
         <div class="container">
-            <img src="/images/human.svg" alt=" " loading="lazy">
+            <img src="/images/human.svg" alt=" ">
             <div class="form">
                 <form @submit.prevent="onSubmit" novalidate>
-                    <span class="title">Готовы сделать заказ или есть вопросы?</span>
+                    <span class="title">Готовы оставить заявку или есть вопросы?</span>
                     <div class="inputs">
                         <div class="input">
                             <Field name="name">
@@ -73,7 +73,7 @@ const onSubmit = handleSubmit(values => {
                         Оставить заявку
                     </button>
                 </form>
-                <span>Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</span>
+                <span>Нажимая на кнопку, вы соглашаетесь с <nuxt-link to="/personal-data-processing-policy/">политикой обработки персональных данных</nuxt-link> и <nuxt-link to="/confidentiality-agreement/">соглашением о конфиденциальности</nuxt-link></span>
             </div>
         </div>
     </section>
@@ -108,6 +108,15 @@ img {
         font-size: 10px;
         text-align: center;
         color: #9B9BAF;
+        a {
+            color: var(--gray-50);
+            text-decoration: underline;
+            font-weight: 400;
+            font-size: 10px;
+        }
+        a:hover {
+            color: var(--orang);
+        }
     }
 
     form {

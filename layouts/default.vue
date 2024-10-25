@@ -4,10 +4,10 @@ import MainHeader from '~/components/main-header.vue';
 </script>
 
 <template>
-    <main-header />
-    <NuxtPage />
+   <div>
+       <main-header />
+       <NuxtPage />
+       <main-footer />
+   </div>
 </template>
 
-<style scoped>
-
-</style>

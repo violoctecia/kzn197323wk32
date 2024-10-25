@@ -6,4 +6,7 @@ export default defineNuxtConfig({
     '@/assets/style/main.css'
   ],
   ssr: true,
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
 })

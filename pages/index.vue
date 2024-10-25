@@ -5,13 +5,15 @@ import FormBlock from '~/components/form-block.vue';
 </script>
 
 <template>
-    <hero-block />
-    <why-block id="why"/>
-    <tech-block id="techs"/>
-    <reviews-block id="reviews"/>
-    <faq id="faq"/>
-    <form-block id="form"/>
-    <contacts-block id="contacts"/>
+    <div>
+        <hero-block />
+        <why-block id="why"/>
+        <tech-block id="techs"/>
+        <reviews-block id="reviews"/>
+        <faq id="faq"/>
+        <form-block id="form"/>
+        <contacts-block id="contacts"/>
+    </div>
 </template>
 
 <style scoped>

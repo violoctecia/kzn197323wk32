@@ -50,6 +50,7 @@
 :root {
     --dark-blue: #011226;
     --gray: #414244;
+    --gray-50: #9B9BAF;
     --white: #fff;
     --white-50: #EAF3FF;
     --background: #f6f7f8;
@@ -95,11 +96,11 @@ body {
     cursor: pointer;
     border: 1px solid var(--orang);
 }
-button:hover, button:focus {
+.button:hover, button:focus {
     background: var(--white);
     color: var(--orang);
 }
-button:disabled {
+.button:disabled {
     border: 1px solid #9B9BAF;
     background: #f6f7f8;
     color: #9B9BAF;
