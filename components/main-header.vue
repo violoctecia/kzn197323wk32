@@ -228,7 +228,7 @@ header {
         right: 0;
         background-color: var(--white);
         overflow-x: hidden;
-
+        overflow-y: scroll;
         padding: 20px 0 80px 0;
         margin-top: 60px;
         display: flex;
@@ -258,6 +258,8 @@ header {
         .sidenav a {font-size: 18px;}
     }
     header {
+        overflow: hidden;
+
         .container {
             justify-content: space-between;
         }
