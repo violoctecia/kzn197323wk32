@@ -221,7 +221,7 @@ header {
     }
 
     .sidenav {
-        height: calc(100vh - 60px);
+        height: calc(100svh - 60px);
         width: 0;
         position: fixed;
         z-index: 1;
@@ -230,7 +230,7 @@ header {
         background-color: var(--white);
         overflow-x: hidden;
         overflow-y: scroll;
-        padding: 20px 0 80px 0;
+        padding: 20px 0 20px 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -249,6 +249,9 @@ header {
             }
         }
         button {
+            position: sticky;
+            bottom: 0;
+            margin-bottom: 30px;
             width: calc(100% - 40px);
         }
     }
