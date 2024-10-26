@@ -60,7 +60,7 @@ const onSubmit = handleSubmit(values => {
                                             class="input auth__input"
                                             mask="+7 (###) ###-##-##"
                                             v-bind="field"
-                                            pattern="[0-9]{10}"
+                                            pattern="[0-9]*"
                                         />
                                     </template>
 
